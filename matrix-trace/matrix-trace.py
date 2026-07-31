@@ -7,7 +7,7 @@ def matrix_trace(A):
     A = np.array(A)
 
     if A.ndim != 2 or A.shape[0] != A.shape[1]:
-        return 0
+        raise ValueError("Matrix must be square")
 
     result = 0
     for i in range(A.shape[0]):
