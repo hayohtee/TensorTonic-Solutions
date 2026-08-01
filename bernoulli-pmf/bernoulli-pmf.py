@@ -10,14 +10,7 @@ def bernoulli_pmf_and_moments(x, p):
         raise ValueError("Probability p must be in the range [0, 1].")
     
     x = np.asarray(x, dtype=float)
-    pmf = np.empty_like(x)
-    for i in range(len(pmf)):
-        if x[i] == 1:
-            pmf[i] = p
-        elif x[i] == 0:
-            pmf[i] = 1 - p
-        else:
-            raise ValueError("x must be 0 or 1 for Bernoulli distribution.")
+    pmf = np.where(x == 1, p, 1-p)
     mean = p
     std = p * (1 - p)
 
